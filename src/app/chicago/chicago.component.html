@@ -1,0 +1,14 @@
+<div *ngIf="weatherinfo != 404">
+  <h1>Chicago, IL</h1>
+  <h3>Humidity: {{weatherinfo?.main.humidity}}</h3>
+  <h3>Temperature(average): {{(weatherinfo?.main.temp -273.15) * 9.0 / 5.0 + 32 | number : '1.2-2'}}</h3>
+  <h3>Temperature(high): {{(weatherinfo?.main.temp_min -273.15) * 9.0 / 5.0 + 32}}</h3>
+  <h3>Temperature(low): {{(weatherinfo?.main.temp_max -273.15) * 9.0 / 5.0 + 32}}</h3>
+  <h3>Status: {{weatherinfo?.weather[0].description}}</h3>
+
+  <img src="http://www.piedmontopera.org/wp-content/uploads/chicago-il-cloud-gate-at-dusk.jpg">
+</div>
+
+<div *ngIf="weatherinfo == 404">
+  <p>This city is not existed</p>
+</div>
